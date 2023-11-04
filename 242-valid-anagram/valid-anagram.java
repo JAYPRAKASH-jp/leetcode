@@ -1,17 +1,22 @@
 class Solution {
      public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()){
+                if(s.length() != t.length()){
             return false;
         }
-        char[] alpharCount= new char[26];
+        HashMap<Character , Integer> count = new HashMap<Character, Integer>(s.length());
         for(char c: s.toCharArray()){
-            alpharCount[c - 'a']++;
+            if (count.containsKey(c)) count.put(c,count.get(c) + 1);
+            else count.put(c,1);
         }
         for(char c: t.toCharArray()){
-            if(alpharCount[c - 'a'] == 0){
-                return false;
+            if(count.containsKey(c)){
+                if(count.get(c) == 0){
+                    return false;
+                }else {
+                    count.put(c,count.get(c) - 1);
+                }
             }else {
-                alpharCount[c - 'a']--;
+                return false;
             }
         }
         return true;
