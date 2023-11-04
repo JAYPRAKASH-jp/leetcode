@@ -4,14 +4,14 @@ class Solution {
             return false;
         }
         int[] alpharCount= new int[26];
-        for(char c: s.toCharArray()){
-            alpharCount[c - 'a']++;
+        for(int i=0; i < s.length(); i++){
+            alpharCount[s.charAt(i) - 'a']++;
         }
-        for(char c: t.toCharArray()){
-            if(alpharCount[c - 'a'] == 0){
+        for(int i=0; i < t.length(); i++){
+            if(alpharCount[t.charAt(i) - 'a'] == 0){
                 return false;
             }else {
-                alpharCount[c - 'a']--;
+                alpharCount[t.charAt(i) - 'a']--;
             }
         }
         return true;
