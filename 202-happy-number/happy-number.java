@@ -1,17 +1,16 @@
 class Solution {
     public boolean isHappy(int n) {
-        HashSet<Integer> hashSet = new HashSet<>();
-        while(hashSet.add(n)){
+        int i=0;
+        while(i++ < 10){
             int sum = 0;
             while (n > 0){
                 sum += (n % 10) *  (n % 10);
                 n = n / 10;
             }
+            if(sum == 1) return true;
             n = sum;
         }
-        if (n == 1)
-            return true;
-        else return false;
+        return false;
     }
 
     public int sumOfSquare(int n){
