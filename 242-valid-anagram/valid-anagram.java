@@ -3,15 +3,17 @@ class Solution {
         if(s.length() != t.length()){
             return false;
         }
+        int size = s.length();
         int[] alpharCount= new int[26];
-        for(int i=0; i < s.length(); i++){
+        for(int i=0; i < size; i++){
             alpharCount[s.charAt(i) - 'a']++;
         }
-        for(int i=0; i < t.length(); i++){
-            if(alpharCount[t.charAt(i) - 'a'] == 0){
+        for(int i=0; i < size; i++){
+            char ch = t.charAt(i);
+            if(alpharCount[ch - 'a'] == 0){
                 return false;
             }else {
-                alpharCount[t.charAt(i) - 'a']--;
+                alpharCount[ch - 'a']--;
             }
         }
         return true;
