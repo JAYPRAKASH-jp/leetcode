@@ -14,10 +14,4 @@ class Solution {
         }
         return false;
     }
-
-    public int sumOfSquare(int n){
-        int sum = 0;
-
-        return sum;
-    }
 }
