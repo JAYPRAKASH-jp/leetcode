@@ -8,15 +8,14 @@ class Solution {
         }
         for(int i = 0; i < patternSize; i++){
             char ch = pattern.charAt(i);
-            String word = str[i];
             if (patternValue.containsKey(ch)){
-                if (patternValue.get(ch).equals(word));
-                else return false;
+                if (!patternValue.get(ch).equals(str[i]))
+                    return false;
             }else{
-                if(patternValue.values().contains(word)){
+                if(patternValue.values().contains(str[i])){
                     return false;
                 }else {
-                    patternValue.put(ch,word);
+                    patternValue.put(ch,str[i]);
                 }
             }
         }
